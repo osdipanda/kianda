@@ -22,7 +22,7 @@ setup(
         "src/interactiveConsole"
     ],
 	entry_points = {
-		"console_scripts": ["thee = src.texteditor:main"]	
+		"console_scripts": ["kianda = src.texteditor:main"]	
 	},
     license="",
 )

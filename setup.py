@@ -4,9 +4,9 @@ from distutils.core import setup
 
 
 setup(
-	name='thee',
+	name='kianda',
 	version='1.0',
-	description='THE simple python key bindings  Editor',
+	description='Editor de texto do projeto dipanda',
     long_description=open('README.md').read(),
 	author='Fidel R. Monteiro',
 	py_modules= [

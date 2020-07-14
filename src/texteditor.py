@@ -226,7 +226,7 @@ class MainWindow(tk.Tk):
         self.text_area.delete('1.0', tk.END)
         message = '''
    		\n\n
-   		            THEE
+   		            KIANDA
 
    		         version 1.0
 

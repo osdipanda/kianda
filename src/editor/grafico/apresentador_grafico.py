@@ -90,4 +90,12 @@ class EditorAreaTexto(Editavel,tk.Text):
             self.replace(self.find_match_index, end, replacement)
 
             self.find_search_starting_index = current_found_index_line + '.0'
- 
+    def cancel_find(self):
+        self.find_search_starting_index = 1.0
+        self.find_match_index = None
+        self.tag_remove('find_match', 1.0, tk.END)
+
+    def display_file_contents(self, filepath):
+        with open(filepath, 'r') as file:
+            self.delete(1.0, tk.END)
+            self.insert(1.0, file.read())

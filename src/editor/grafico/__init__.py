@@ -29,8 +29,9 @@ from .statusbar   import StatusBar
 from .highlighter import Highlighter
 from .findwindow  import FindWindow
 from .terminal    import Terminal
+from essencial.configuracao import Kiandavel
 
-class MainWindow(tk.Tk):
+class MainWindow(tk.Tk,Kiandavel):
     def __init__(self):
         super().__init__()
 
@@ -234,14 +235,16 @@ class MainWindow(tk.Tk):
 
    		         version 1.0
 
-   	   THE simple python key bindings  Editor
+   	   Um editor de texto simples, e elegante como uma sereia
 
-   	     type   Ctrl-h 	for help information
+   	     Digite   Ctrl-h 	Para  obter ajuda
 
-   	by Fidel R. Monteiro <fidelrmonteiro@gmail.com>
+   	Por Fidel R. Monteiro <fidelrmonteiro@gmail.com>
+        \n
+    E Adilson A. Capaia <https://github.com/AdilsonCapaia>
    		\n
 
-   	    The Pynosso Project | Sat, Jun 26 2020 
+   	    Projecto Dipanda | 2018 
    		'''
         self.text_area.insert(tk.END, message)
         self.text_area.config(state=tk.DISABLED) 
@@ -412,22 +415,17 @@ class MainWindow(tk.Tk):
         Ctrl+H
         """
         self.show_about_page()
-
-
-from essencial.configuracao import Kiandavel
-
-class Editor(Kiandavel):
- 
     def pre_lancamento(self):
         print("TESTE PRE-LANCAMENTO")
-        app = MainWindow()
-        app.mainloop()
+        
+        self.mainloop()
 
     def instalar_extensoes(self):
          print("TESTE INSTALACAO EXTENSOES")
-   
 
+
+Aplicativo = MainWindow()
 
 if __name__ == '__main__':
     app = MainWindow()
-    app.mainloop()
+    app.lancar()

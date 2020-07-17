@@ -50,10 +50,10 @@ class FindWindow(tk.Toplevel):
         self.protocol("WM_DELETE_WINDOW", self.on_cancel)
 
     def on_find(self):
-        self.text_widget.find(self.text_to_find.get())
+        self.text_widget.procurar(self.text_to_find.get())
 
     def on_replace(self):
-        self.text_widget.replace_text(self.text_to_find.get(), self.text_to_replace_with.get())
+        self.text_widget.substituir(self.text_to_find.get(), self.text_to_replace_with.get())
 
     def on_cancel(self):
         self.text_widget.cancel_find()

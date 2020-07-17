@@ -4,11 +4,11 @@ from distutils.core import setup
 
 
 setup(
-	name='kianda',
+	name='Kianda',
 	version='1.0',
 	description='Editor de texto do projeto dipanda',
     long_description=open('README.md').read(),
-	author='Fidel R. Monteiro',
+	author='Projeto Dipanda, Fidel R. Monteiro, Adilson A. Capaia',
 	py_modules= [
 		"src/findwindow",
 		"src/highlighter",

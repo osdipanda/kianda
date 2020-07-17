@@ -1,3 +1,6 @@
+from . import apresentador_grafico
+from . import entrada_grafica
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
@@ -19,7 +22,7 @@ import tkinter.ttk as ttk
 import tkinter.messagebox as msg
 from pathlib import Path
 from tkinter import filedialog
-
+from editor.grafico.apresentador_grafico import EditorAreaTexto
 from .textarea    import TextArea
 from .linenumbers import LineNumbers
 from .statusbar   import StatusBar
@@ -31,7 +34,8 @@ class MainWindow(tk.Tk):
     def __init__(self):
         super().__init__()
 
-        self.title('THEE')
+        self.title('KIANDA')
+        
         self.minsize(550, 40) # (width, height)
         self.winfo_screenwidth  = self.winfo_screenwidth()
         self.winfo_screenheight = self.winfo_screenheight()
@@ -89,7 +93,7 @@ class MainWindow(tk.Tk):
         self.protocol("WM_DELETE_WINDOW", self.close_window)
 
     def create_widget(self):
-        self.text_area = TextArea(self.frame1, bg=self.text_background, 
+        self.text_area = EditorAreaTexto(self.frame1, bg=self.text_background, 
         fg=self.text_foreground, undo=True, relief=tk.FLAT,
         font=(self.text_font_family, self.text_font_size),  
         insertbackground=self.insertbackground)
@@ -97,7 +101,7 @@ class MainWindow(tk.Tk):
         self.text_area.grid(row=0, column=1,  sticky='wens')
         self.text_area.focus_set()
         self.welcome(event=None)
-
+        self.text_area.inserir("Teste Inserir")
         self.status_bar1 = StatusBar(self.frame2, bg="pink", width=30, height=10)
         self.status_bar2 = StatusBar(self.frame2, bg="orange", width=30, height=10)
         self.status_bar3 = StatusBar(self.frame2, bg="blue", width=30, height=10)
@@ -410,11 +414,20 @@ class MainWindow(tk.Tk):
         self.show_about_page()
 
 
-def main():
-	app = MainWindow()
-	app.mainloop()
+from essencial.configuracao import Kiandavel
+
+class Editor(Kiandavel):
+ 
+    def pre_lancamento(self):
+        print("TESTE PRE-LANCAMENTO")
+        app = MainWindow()
+        app.mainloop()
+
+    def instalar_extensoes(self):
+         print("TESTE INSTALACAO EXTENSOES")
+   
+
 
 if __name__ == '__main__':
     app = MainWindow()
     app.mainloop()
-
